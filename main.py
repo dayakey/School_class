@@ -19,15 +19,15 @@ class Student(Human):
 
 
 def registration():
-    ans = input("Are you teacher or student?( Teacher, Student):").capitalize()
-    if ans == "Teacher":
+    registration = input("Are you teacher or student?(Teacher, Student):").capitalize()
+    if registration == "Teacher":
         teacher = Teacher(input("Enter your name: "), int(input("Enter your age: ")), input("Enter your subject: "),
                           input("Enter your years of experience: "))
         print(teacher.name)
         print(teacher.age, "years old")
         print(teacher.subject)
         print(teacher.experience, "years of experience")
-    elif ans == "Student":
+    elif registration == "Student":
         student = Student(input("Enter your name: "), int(input("Enter your age: ")), int(input("Enter your grade: ")),
                           input("Enter your address: "))
         print(student.name)
