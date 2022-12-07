@@ -1,31 +1,40 @@
-class Human():
-    def __init__(self, name, age, room):
+class Human:
+    def __init__(self, name, age):
         self.name = name
         self.age = age
-        self.room = room
-
-    def classroom(self):
-        print("You have lesson", "In", self.room)
 
 
 class Teacher(Human):
-    def __init__(self, name, age, subject, experience, room):
-        super().__init__(name, age, room)
+    def __init__(self, name, age, subject, experience):
+        super().__init__(name, age)
         self.subject = subject
         self.experience = experience
 
-    def teach(self):
-        print("My name is", self.name, "and I'm", self.age, ", I will teach you", self.subject,
-              ", I teach this subject for", self.experience, "and my lessons will be in", self.room)
 
-
-class Students(Human):
-    def __init__(self, name, age, nummer_class, address, room,):
-        super().__init__(name, age, room)
-        self.nummer_class = nummer_class
+class Student(Human):
+    def __init__(self, name, age, grade, address):
+        super().__init__(name, age)
+        self.grade = grade
         self.address = address
 
 
-teacher = Teacher(input("Enter teachers name:"), input("Enter teachers age:"), input("Enter teachers subject:"),
-                  input("Enter teachers years experience:"), input("Enter teachers lessons room:"))
-students = Students()
+def registration():
+    ans = input("Are you teacher or student?( Teacher, Student):").capitalize()
+    if ans == "Teacher":
+        teacher = Teacher(input("Enter your name: "), int(input("Enter your age: ")), input("Enter your subject: "),
+                          input("Enter your years of experience: "))
+        print(teacher.name)
+        print(teacher.age, "years old")
+        print(teacher.subject)
+        print(teacher.experience, "years of experience")
+    elif ans == "Student":
+        student = Student(input("Enter your name: "), int(input("Enter your age: ")), int(input("Enter your grade: ")),
+                          input("Enter your address: "))
+        print(student.name)
+        print(student.age, "years old")
+        print(student.grade, "grade")
+        print(student.address)
+
+
+registration()
+
